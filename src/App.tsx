@@ -1,7 +1,8 @@
 import './App.css'
 {/*import Footer from './componets/footer/Footer'
-  import AboutMe from './components/aboutme/AboutMe'
+  
 import Footer from './components/footer/Footer'*/}
+import AboutMe from './components/aboutme/AboutMe'
 import Header from './components/header/Header' 
 import NavBar from './components/navbar/NavBar'
 {/*import Footer from './components/footer/Footer'
@@ -11,8 +12,9 @@ function App() {
   return (
     <div>
       <NavBar />
-      <Header />{/*
+      <Header />
       <AboutMe />
+      {/*
       <Projects />
       <Footer />*/}
     </div>

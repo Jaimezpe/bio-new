@@ -1,0 +1,48 @@
+.aboutme {
+    margin-top: 280px;
+}
+
+.aboutmecontenido {
+    text-align: left;
+    width: 650px;
+    font-size: 17px;
+}
+
+.aboutmecontenido h1 {
+    margin-left: 10px;
+}
+
+.exp1 {
+    display: flex;
+}
+
+.quehehecho {
+    text-align: left;
+    width: 400px;
+}
+
+.aboutmexp {
+    align-items: center;
+}
+
+.titlehecho {
+    font-size: 30px;
+}
+
+.fechas {
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+@media (max-width: 1400px) {
+
+    .aboutmecontenido {
+        text-align: center;
+    }
+
+    .aboutme {
+        display: flex;
+        flex-direction: column;
+    }
+
+}

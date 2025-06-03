@@ -7,6 +7,11 @@ function Header() {
                 <h3 className='saludo'>Hi there! I'm</h3>
                 <h1 className='minombre'>Jaime Ezpeleta</h1>
                 <h2 className='quesoy'>Software developer</h2>
+                <div className='locationdiv'>
+                    <h3>🌍 </h3>
+                    <h3> Madrid</h3>
+                </div>
+
                 <div className="headerskills">
                     <img src="/react.svg" draggable='false' />
                     <img src="/css.svg" draggable='false' />
@@ -26,7 +31,7 @@ function Header() {
 
 
             <div className='headerderecha'>
-                <img src='/headerderecha.png' draggable="false" alt="Logo" />
+                <img src='/ey.png' draggable="false" alt="Logo" />
             </div>
         </div>
     );
