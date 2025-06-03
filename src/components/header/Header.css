@@ -1,0 +1,60 @@
+.headerizquierda {
+    text-align: left;
+    margin-top: 20px;
+}
+
+.headeralign {
+    display: flex;
+    gap: 330px;
+    font-size: 1.3rem;
+    margin-top: -140px;
+}
+
+.headerderecha img {
+    width: 100%;
+    height: auto;
+    max-width: 600px;
+}
+
+.headerskills {
+    display: flex;
+    gap: 15px;
+    margin-bottom: -23px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.headerskills img {
+    height: 23px;
+}
+
+.saludo {
+    color: #9f9fff;
+    font-size: 35px;
+}
+
+.minombre {
+    background: linear-gradient(135deg, #507fe4, #8de4ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: -1px;
+    margin-top: -20px;
+    
+}
+
+.quesoy {
+    font-size: 28px;
+    color: #8de4ff;
+}
+
+.headerboton {
+    background: linear-gradient(135deg, #2563eb, #3aeda2);
+    border-radius: 40px;
+    color: white;
+    margin-top: 50px;
+    transition: all 0.3s ease;
+}
+
+.headerboton:hover {
+    transform: scale(1.1);
+}
