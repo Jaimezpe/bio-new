@@ -19,7 +19,7 @@ function AboutMe() {
                     <div className="exp1">
 
                         <div className="fechas">
-                            2020-2023
+                            2020-2022
                         </div>
                         <div className="quehehecho">
                             <div className="titlehecho">
@@ -27,6 +27,36 @@ function AboutMe() {
                             </div>
                             <div className="explicacionhecho">
                                 I've been coding discord bots with discord.js for my servers and for other people servers. also i prepare servers decorating, making roles, administrating, etc. like having the job of administrador and preparator (8 servers)
+                            </div>
+                        </div>
+
+                    </div>
+                    <div className="exp1">
+
+                        <div className="fechas">
+                            2023-2024
+                        </div>
+                        <div className="quehehecho">
+                            <div className="titlehecho">
+                                Creating and designing SaaS
+                            </div>
+                            <div className="explicacionhecho">
+                                I've been coding discord bots with discord.js for my servers and for other people servers. also i prepare servers decorating, making roles, administrating, etc. like having the job of administrador and preparator (8 servers)
+                            </div>
+                        </div>
+
+                    </div>
+                    <div className="exp1">
+
+                        <div className="fechas">
+                            2024-2025
+                        </div>
+                        <div className="quehehecho">
+                            <div className="titlehecho">
+                                Coding web pages
+                            </div>
+                            <div className="explicacionhecho">
+                                I have been creating webs for people and for my SaaS general webpage, in HTML, CSS and JS for basic pages, and in React, TypeScript, Vite, etc.
                             </div>
                         </div>
 

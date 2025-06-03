@@ -61,10 +61,12 @@
     color: white;
     margin-top: 50px;
     transition: all 0.3s ease;
+    border: 2px solid white;
 }
 
 .headerboton:hover {
     transform: scale(1.1);
+    border: 2px solid white;
 }
 
 .locationdiv img {
@@ -93,7 +95,7 @@
     }
 
     .locationdiv {
-        margin-left: -10px;
+        margin-left: -90px;
     }
 
 }

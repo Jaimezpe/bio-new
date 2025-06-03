@@ -1,15 +1,23 @@
 .aboutme {
-    margin-top: 280px;
+    margin-top: 300px;
+    font-size: clamp(13px, 3vw, 17px);
 }
 
 .aboutmecontenido {
     text-align: left;
-    width: 650px;
-    font-size: 17px;
+    width: auto;
+    max-width: 650px;
+    height: auto;
+    font-size: clamp(13px, 3vw, 17px);
 }
 
 .aboutmecontenido h1 {
     margin-left: 10px;
+}
+
+.aboutmecontenido h3 {
+    max-width: 600px;
+    width: auto;
 }
 
 .exp1 {
@@ -30,8 +38,8 @@
 }
 
 .fechas {
-    margin-top: 10px;
-    margin-right: 10px;
+    margin-top: 13px;
+    margin-right: 30px;
 }
 
 @media (max-width: 1400px) {
@@ -45,4 +53,10 @@
         flex-direction: column;
     }
 
+
+    .aboutmecontenido h1 {
+        margin-left: -20px;
+    }
+
 }
+
