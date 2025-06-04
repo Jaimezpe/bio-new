@@ -13,10 +13,10 @@ function NavBar() {
       <div className="barra-derecha">
         <a href="https://jaimezpe.com/en">🇬🇧</a>
         <p>|</p>
-        <a href="#sobremi">Sobre mí</a>
-        <a href="#conocimientos">Conocimientos</a>
-        <a href="#proyectos">Proyectos</a>
-        <a href="#contacto">Contacto</a>
+        <a href="#sobremi">About me</a>
+        <a href="#conocimientos">Knowledge</a>
+        <a href="#proyectos">Projects</a>
+        <a href="#contacto">Contact</a>
       </div>
     </div>
   );

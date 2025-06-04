@@ -5,6 +5,7 @@ import Footer from './components/footer/Footer'*/}
 import AboutMe from './components/aboutme/AboutMe'
 import Header from './components/header/Header' 
 import NavBar from './components/navbar/NavBar'
+import Skills from './components/skills/Skills'
 {/*import Footer from './components/footer/Footer'
 import Projects from './components/projects/Projects' */}
 
@@ -14,6 +15,8 @@ function App() {
       <NavBar />
       <Header />
       <AboutMe />
+      <Skills />
+      
       {/*
       <Projects />
       <Footer />*/}

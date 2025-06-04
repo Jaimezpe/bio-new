@@ -12,9 +12,11 @@
 }
 
 .headerderecha img {
-    max-width: 370px;
+    max-width: 300px;
     height: auto;
     margin-top: 50px;
+    border-radius: 195px;
+    box-shadow: 0 0px 30px #8debed;
 }
 
 @media (max-width: 600px) {
@@ -62,6 +64,7 @@
     margin-top: 50px;
     transition: all 0.3s ease;
     border: 2px solid white;
+    box-shadow: 0 0px 12px #2daea5b7;
 }
 
 .headerboton:hover {
@@ -82,11 +85,15 @@
     gap: 10px;
     color: #8de4ff;
 }
-@media (max-width: 1400px) {
+@media (max-width: 800px) {
 
     .headerderecha {
         display: none;
     }
+
+}
+
+@media (max-width: 550px) {
 
     .headerizquierda {
         display: flex;

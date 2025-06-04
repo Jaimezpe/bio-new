@@ -1,0 +1,141 @@
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.skill-item {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.skill-icon {
+    width: 30px;
+    height: 30px;
+    margin: 0 auto 15px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.skill-name {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Colores específicos para cada tecnología */
+.html { background: #E34F26; }
+.css { background: #1572B6; }
+.js { background: #F7DF1E; color: black; }
+.react { background: #61DAFB; color: black; }
+.tailwind { background: #06B6D4; }
+.figma { background: linear-gradient(45deg, #FF7262, #9747FF, #00C4CC); }
+
+.python { background: #3776AB; }
+.nodejs { background: #339933; }
+.laravel { background: #FF2D20; }
+.express { background: #000000; }
+.mysql { background: #4479A1; }
+.mongodb { background: #47A248; }
+.nextjs { background: #000000; }
+.nginx { background: #009639; }
+.apache { background: #D22128; }
+
+.power-automate { background: #0066FF; }
+.astro { background: #FF5D01; }
+.docker { background: #2496ED; }
+.typescript { background: #3178C6; }
+.azure { background: #0078D4; }
+
+.git { background: #F05032; }
+.github { background: #181717; }
+.terminal { background: #4EAA25; }
+.vscode { background: #007ACC; }
+.npm { background: #CB3837; }
+.wordpress { background: #21759B; }
+
+
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .section {
+        padding: 20px;
+    }
+    
+    .section h2 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+    }
+}
+
+.section {
+    background: rgba(30, 35, 45, 0.8);
+    border-radius: 20px;
+    padding: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+.section h2 {
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.frontend h2 {
+    color: #00D4FF;
+}
+
+.backend h2 {
+    color: #A8A8A8;
+}
+
+.learning h2 {
+    color: #FF8A65;
+}
+
+.learning h3 {
+    color: #FF8A65;
+    font-size: 25px;
+}
+
+.tools h2 {
+    color: #64B5F6;
+}
+
+
+.parent {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 20px;
+}
+    
+
+
+
+        
