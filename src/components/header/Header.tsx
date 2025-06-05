@@ -32,6 +32,7 @@ function Header() {
 
             <div className='headerderecha'>
                 <img src='/ey.png' draggable="false" alt="Logo" />
+                <button className="animated-button">Disponible para trabajar</button>
             </div>
         </div>
     );

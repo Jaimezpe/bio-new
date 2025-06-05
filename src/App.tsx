@@ -6,8 +6,8 @@ import AboutMe from './components/aboutme/AboutMe'
 import Header from './components/header/Header' 
 import NavBar from './components/navbar/NavBar'
 import Skills from './components/skills/Skills'
-{/*import Footer from './components/footer/Footer'
-import Projects from './components/projects/Projects' */}
+import Footer from './components/footer/Footer'
+{/*import Projects from './components/projects/Projects' */}
 
 function App() {
   return (
@@ -16,10 +16,9 @@ function App() {
       <Header />
       <AboutMe />
       <Skills />
-      
       {/*
-      <Projects />
-      <Footer />*/}
+      <Projects />*/}
+      <Footer />
     </div>
   )
 }

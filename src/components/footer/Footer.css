@@ -1,0 +1,42 @@
+.footerder img {
+    height: 30px;
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+}
+
+.footerder img:hover {
+    transform: scale(1.15);
+}
+
+.footerder {
+    text-align: right;
+}
+
+.footerizq {
+    text-align: left;
+}
+
+.footerizq h1 {
+    margin-bottom: -0.5px;
+    font-size: 35px;
+    background: linear-gradient(135deg, #507fe4, #8de4ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.footerizq h3 {
+    background: linear-gradient(135deg, #50dae4, #a0ff8d8c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.divfooter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(44, 44, 44);
+    width: 100%;
+    border-radius: 50px;
+    gap: 350px;
+    margin-top: 50px;
+}

@@ -7,8 +7,8 @@
     display: flex;
     gap: 330px;
     font-size: 1.3rem;
-    margin-top: -180px;
     margin-top: 100px;
+    padding: 0 20px;
 }
 
 .headerderecha img {
@@ -19,11 +19,11 @@
     box-shadow: 0 0px 30px #8debed;
 }
 
-@media (max-width: 600px) {
-    .headerderecha img {
-        margin-top: 20px;
-        max-width: 90%;
-    }
+
+.headerderecha {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
 }
 
 .headerskills {
@@ -32,6 +32,7 @@
     margin-bottom: -23px;
     height: 40px;
     cursor: pointer;
+    flex-wrap: wrap;
 }
 
 .headerskills img {
@@ -40,7 +41,7 @@
 
 .saludo {
     color: #9f9fff;
-    font-size: 35px;
+    font-size: clamp(25px, 5vw, 35px);
 }
 
 .minombre {
@@ -49,11 +50,11 @@
     -webkit-text-fill-color: transparent;
     margin-bottom: -1px;
     margin-top: -20px;
-    
+    font-size: clamp(30px, 6vw, 45px);
 }
 
 .quesoy {
-    font-size: 28px;
+    font-size: clamp(20px, 4vw, 28px);
     color: #8de4ff;
 }
 
@@ -65,6 +66,8 @@
     transition: all 0.3s ease;
     border: 2px solid white;
     box-shadow: 0 0px 12px #2daea5b7;
+    padding: 12px 25px;
+    font-size: clamp(14px, 2vw, 16px);
 }
 
 .headerboton:hover {
@@ -79,22 +82,51 @@
 .locationdiv {
     display: flex;
     width: 100px;
-    font-size: 18px;
+    font-size: clamp(14px, 2vw, 18px);
     margin-top: -30px;
     margin-bottom: 20px;
     gap: 10px;
     color: #8de4ff;
 }
+
+@media (max-width: 1200px) {
+    .headeralign {
+        gap: 150px;
+    }
+}
+
+@media (max-width: 900px) {
+    .headeralign {
+        gap: 50px;
+    }
+
+    .headerderecha img {
+        max-width: 250px;
+    }
+}
+
 @media (max-width: 800px) {
+    .headeralign {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .headerizquierda {
+        text-align: center;
+    }
 
     .headerderecha {
         display: none;
     }
 
+    .locationdiv {
+        justify-content: center;
+        width: auto;
+    }
 }
 
 @media (max-width: 550px) {
-
     .headerizquierda {
         display: flex;
         flex-direction: column;
@@ -102,7 +134,95 @@
     }
 
     .locationdiv {
-        margin-left: -90px;
+        margin-left: 0;
     }
 
+    .headerskills {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 400px) {
+    .headeralign {
+        padding: 0 10px;
+    }
+
+    .headerboton {
+        width: 100%;
+        max-width: 250px;
+    }
+}
+
+.animated-button {
+    position: relative;
+    padding: 15px 40px;
+    background: linear-gradient(135deg, #2c2c54 0%, #1a1a2e 100%);
+    border: none;
+    border-radius: 50px;
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.3s ease;
+    overflow: hidden;
+    animation: movingBorder 3s linear infinite;
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+    display: none;
+}
+
+.animated-button:hover {
+    transform: scale(1.15);
+}
+
+.animated-button::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg,
+            #00ff88, #00ff88, transparent, transparent,
+            #00ff88, #00ff88, transparent, transparent);
+    background-size: 400% 400%;
+    border-radius: 25px;
+    z-index: -1;
+    animation: movingBorder 3s linear infinite;
+}
+
+.animated-button::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    background: linear-gradient(135deg, #2c2c54 0%, #1a1a2e 100%);
+    border-radius: 50px;
+    z-index: -1;
+}
+
+@keyframes movingBorder {
+    0% {
+        background-position: 0% 0%;
+    }
+
+    25% {
+        background-position: 100% 0%;
+    }
+
+    50% {
+        background-position: 100% 100%;
+    }
+
+    75% {
+        background-position: 0% 100%;
+    }
+
+    100% {
+        background-position: 0% 0%;
+    }
 }
