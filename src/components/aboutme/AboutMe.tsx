@@ -7,10 +7,12 @@ function AboutMe() {
             <div className="aboutmesobremi">
                 <div className="aboutmecontenido">
                     <h1>Aboutme</h1>
-                    <h3>Hi👋! I'm Jaime, FrontEnd developer. I have always been curious about technology and eager to create. 2 years ago, I started with web programming after developing JavaScript on discord and since then, I have been learning more and more.
-
-                    </h3>
-                    <h3>Using creativity for create technology has become a very important part of my life. I love experimenting with both hardware and software</h3>
+                    <span>Hi👋! I'm Jaime, <span className="azul">FrontEnd developer</span>. I have always been curious about technology and eager to create. 2 years ago, I started with <span className="orange">web programming
+                    </span> after <span className="orange">developing</span> JavaScript on
+                        <span className='orange'> discord</span> and since then, I have been learning more and more. Using <span className="orange">
+                            creativity for create technology</span> has become a very important part of my life. I love
+                        <span className="orange"> experimenting</span> with both <span className=''>hardware</span> and <span className="orange">software</span>
+                    </span>
                     <h3>"Think different"😉</h3>
                 </div>
                 <div className="aboutmeimagen">
@@ -37,7 +39,7 @@ function AboutMe() {
                 <div className="timeline-item">
                     <div className="timeline-year">2024-2025</div>
                     <div className="timeline-title">Coding web pages</div>
-                    <div className="timeline-desc">
+                    <div className="timeline-desc" id='conocimientos'>
                         I built websites for clients and for my own projects, including the main landing page for my SaaS. I used HTML, CSS, and JavaScript for basic static pages, and React, TypeScript, Vite, and other modern tools for more advanced, dynamic web applications.
                     </div>
                 </div>

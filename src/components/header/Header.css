@@ -226,3 +226,11 @@
         background-position: 0% 0%;
     }
 }
+
+.conectado {
+    color: #00ff88;
+}
+
+.headercontact button {
+    margin-right: 10px;
+}

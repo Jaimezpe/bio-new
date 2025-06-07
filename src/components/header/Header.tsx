@@ -22,11 +22,23 @@ function Header() {
                     <a href="http://figma.com/"><img src="/figma.svg" draggable='false' /></a>
                     <a href="https://vite.dev/"><img src="/vite.svg" draggable='false' /></a>
                 </div>
-                <button
-                    className='headerboton'
-                    onClick={() => window.location.href = 'mailto:info@jaimezpe.com'}>
-                    Get in touch
-                </button>
+
+                <div className="headercontact">
+                    <button
+                        className='headerboton'
+                        onClick={() => window.location.href = 'mailto:info@jaimezpe.com'} id='sobremi'>
+                        Get in touch
+
+                    </button>
+                    <button
+                        className='headerboton'
+                        onClick={() => window.location.href = 'https://calendly.com/jaimezpe-info/30min'}>
+                        🗓️
+
+                    </button>
+                    
+                </div>
+
             </div>
 
 

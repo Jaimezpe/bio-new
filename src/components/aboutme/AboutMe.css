@@ -1,5 +1,5 @@
 .aboutme {
-    margin-top: 150px;
+    margin-top: 200px;
     font-size: clamp(13px, 3vw, 15px);
     width: auto;
     height: auto;
@@ -16,11 +16,12 @@
 }
 
 .aboutmecontenido h1 {
-    background: linear-gradient(135deg, #507fe4, #8de4ff);
+    background: linear-gradient(135deg, #507fe4, #012383);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-size: clamp(25px, 5vw, 35px);
-    margin-bottom: 20px;
+    font-size: clamp(25px, 5vw, 57px);
+    margin-bottom: 40px;
+    text-align: center;
 }
 
 .aboutmecontenido h3 {
@@ -120,4 +121,12 @@
     .timeline-item {
         padding: 0.8rem;
     }
+}
+
+.azul {
+    color: #7FFFD4;
+}
+
+.orange {
+   color: #ff9c21; 
 }
