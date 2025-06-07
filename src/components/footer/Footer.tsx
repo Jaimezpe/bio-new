@@ -8,7 +8,7 @@ function Footer() {
                     <h1>Jaime Ezpeleta</h1>
                     <h3>Software developer</h3>
                     <div className="divfootercentrado">
-                    <p>Web 2025 <a href="oldbio.jaimezpe.com">| Old web</a></p>
+                    <p>Web 2025 <a href="https://oldbio.jaimezpe.com">| Old web</a></p>
                 </div>
                 </div>
                 <div className="footerder">
