@@ -1,13 +1,13 @@
 import './App.css'
-{/*import Footer from './componets/footer/Footer'
-  
-import Footer from './components/footer/Footer'*/}
 import AboutMe from './components/aboutme/AboutMe'
 import Header from './components/header/Header' 
 import NavBar from './components/navbar/NavBar'
 import Skills from './components/skills/Skills'
 import Footer from './components/footer/Footer'
 {/*import Projects from './components/projects/Projects' */}
+
+
+
 
 function App() {
   return (

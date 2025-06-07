@@ -2,7 +2,7 @@ import './Header.css';
 
 function Header() {
     return (
-        <div className='headeralign'>
+        <div className='headeralign  '>
             <div className='headerizquierda'>
                 <h3 className='saludo'>Hi there! I'm</h3>
                 <h1 className='minombre'>Jaime Ezpeleta</h1>

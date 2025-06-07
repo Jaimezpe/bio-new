@@ -1,9 +1,10 @@
 import './AboutMe.css';
 
+
 function AboutMe() {
     return (
 
-        <div className="aboutme">
+        <div className="aboutme  ">
             <div className="aboutmesobremi">
                 <div className="aboutmecontenido">
                     <h1>Aboutme</h1>
