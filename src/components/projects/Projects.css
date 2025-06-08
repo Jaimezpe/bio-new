@@ -43,6 +43,16 @@
     margin-bottom: 50px;
 }
 
+.todoprojects h1 {
+    background: linear-gradient(135deg, #507fe4, #012383);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: clamp(25px, 5vw, 57px);
+    text-align: center;
+    height: 100px;
+    margin-bottom: -50px;
+}
+
 @media (max-width: 710px) {
     .projects {
         flex-direction: column;
