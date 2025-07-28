@@ -2,7 +2,7 @@ import './Projects.css';
 
 function Projects() {
     return (
-        <div className='todoprojects'>
+        <div className='todoprojects' id='proyectos'>
             <h1>Projects</h1>
             <div className='projects'>
 
@@ -21,8 +21,8 @@ function Projects() {
 
                 <div className="proyecto">
                     <img src="/tisklastscreenshot.png" draggable='false' />
-                    <p>Tisklast</p>
-                    <p>Founda is a website that provides you SaaS for helping people to make their life easier</p>
+                    <p>TiskLast</p>
+                    <p>TiskLast is a minimalistic task manager that helps you stay focused and organized, with a clean interface and a built-in notes box.</p>
                     <div className='lenguaje'>
                         <img src="/skills/html.svg" draggable='false' className='lenguajeimagen' />
                         <img src="/skills/css.svg" draggable='false' className='lenguajeimagen2' />

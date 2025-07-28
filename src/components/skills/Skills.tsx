@@ -75,7 +75,7 @@ function Skills() {
 
                 <div className="div12">
                     <div className="section learning">
-                        <h2>Aprendiendo</h2>
+                        <h2>Learning</h2>
                         <div className="skills-grid">
                             <div className="skill-item">
                                 <img src="/skills/powerautomate.svg" className='skill-icon' draggable='false' />
@@ -120,7 +120,7 @@ function Skills() {
 
                 <div className="div13">
                     <div className="section tools">
-                        <h2>Herramientas</h2>
+                        <h2>Tools</h2>
                         <div className="skills-grid">
                             <div className="skill-item">
                                 <img src="/skills/git.svg" className='skill-icon' draggable='false' />

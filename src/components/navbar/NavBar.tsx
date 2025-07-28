@@ -11,8 +11,10 @@ function NavBar() {
       </a>
 
       <div className="barra-derecha">
-        <a href="https://jaimezpe.com/en">🇬🇧</a>
+        {/* 
+        <a href="https://jaimezpe.com/en">🇬🇧</a> 
         <p>|</p>
+        */}
         <a href="#sobremi">About me</a>
         <a href="#conocimientos">Knowledge</a>
         <a href="#proyectos">Projects</a>
@@ -23,3 +25,4 @@ function NavBar() {
 }
 
 export default NavBar;
+  
