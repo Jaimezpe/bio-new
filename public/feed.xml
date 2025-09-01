@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+  <channel>
+    <item>
+  <title>Intel presenta nueva generación de procesadores Arrow Lake</title>
+  <description>Intel ha anunciado oficialmente su línea Arrow Lake, con mejoras significativas en rendimiento multinúcleo y eficiencia energética. Esta generación promete superar a Meteor Lake gracias a un rediseño arquitectónico que combina núcleos de alto rendimiento y eficiencia, junto con una GPU integrada más potente. La compañía busca recuperar terreno frente a AMD en el segmento de ordenadores de sobremesa y portátiles de gama alta.</description>
+  <pubDate>Mon, 02 Sep 2025 12:00:00 +0000</pubDate>
+</item>
+
+<item>
+  <title>Apple prepara evento centrado en inteligencia artificial</title>
+  <description>Apple ha confirmado la realización de un evento especial en septiembre enfocado en inteligencia artificial. Se espera la presentación de nuevas funciones de IA en iOS, macOS y sus servicios en la nube, además de avances en modelos propios de lenguaje. La estrategia busca reforzar la competitividad de Apple frente a Google y Microsoft en el ámbito de la productividad y el consumo digital.</description>
+  <pubDate>Tue, 02 Sep 2025 12:00:00 +0000</pubDate>
+</item>
+
+<item>
+  <title>NVIDIA anuncia gráficas RTX 5000 para creadores</title>
+  <description>NVIDIA ha revelado su nueva serie RTX 5000 Creator, diseñada específicamente para profesionales de edición, animación y renderizado 3D. Las tarjetas incorporan núcleos optimizados para IA, aceleración avanzada de ray tracing y un notable aumento de memoria. Esta línea busca convertirse en la herramienta estándar para estudios de diseño y producción audiovisual, marcando un salto en potencia y eficiencia frente a generaciones anteriores.</description>
+  <pubDate>Wed, 03 Sep 2025 12:00:00 +0000</pubDate>
+</item>
+
+<item>
+  <title>GitHub introduce asistentes de IA en repositorios</title>
+  <description>GitHub ha implementado asistentes inteligentes integrados en los repositorios para facilitar la colaboración entre desarrolladores. Esta nueva función permite obtener explicaciones de código, sugerencias de mejora y generación automática de documentación, reduciendo tiempos de revisión y errores. La compañía apuesta por transformar la plataforma en un espacio más interactivo y eficiente gracias a la integración con modelos avanzados de lenguaje.</description>
+  <pubDate>Thu, 04 Sep 2025 12:00:00 +0000</pubDate>
+</item>
+
+  </channel>
+</rss>
