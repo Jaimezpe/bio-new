@@ -5,15 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Calculadora de Inversión</title>
 <style>
-  body { font-family: Arial, sans-serif; max-width: 500px; margin: 50px auto; }
-  input, button { padding: 8px; margin: 5px 0; width: 100%; }
+  body { font-family: Arial, sans-serif; max-width: 700px; margin: 50px auto; padding: 0 20px; }
+  input, button { padding: 8px; margin: 5px 0; width: 100%; font-size: 16px; }
   .resultado { margin-top: 20px; }
+  table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+  th, td { border: 1px solid #ccc; padding: 8px; text-align: right; }
+  th { background-color: #f0f0f0; }
+  caption { text-align: left; font-weight: bold; margin-bottom: 10px; }
 </style>
 </head>
 <body>
 <h2>Calculadora de Inversión</h2>
 <label for="cantidad">Introduce la cantidad a invertir (€):</label>
-<input type="number" id="cantidad" placeholder="Ej. 50" />
+<input type="number" id="cantidad" placeholder="Ej. 100" />
 
 <button onclick="calcular()">Calcular distribución</button>
 
@@ -28,11 +32,12 @@ function calcular() {
     }
 
     const distribucion = {
-        "Dow Jones": 0.33,
-        "S&P 500": 0.33,
-        "Microsoft": 0.12,
-        "IBEX 35": 0.12,
-        "Oro": 0.10
+        "Dow Jones": 30/100,
+        "S&P 500": 30/100,
+        "Microsoft": 9/100,
+        "IBEX 35": 9/100,
+        "Oro": 7/100,
+        "Apple": 15/100
     };
 
     let resultadoHTML = "<h3>Distribución de inversión:</h3><ul>";
@@ -45,5 +50,27 @@ function calcular() {
     document.getElementById('resultado').innerHTML = resultadoHTML;
 }
 </script>
+
+<h2>Proyección de crecimiento de la cartera (€)</h2>
+<table>
+  <caption>Valores aproximados por año según rendimiento histórico estimado</caption>
+  <tr>
+    <th>Año</th>
+    <th>Dow Jones</th>
+    <th>S&P 500</th>
+    <th>Microsoft</th>
+    <th>IBEX 35</th>
+    <th>Oro</th>
+    <th>Apple</th>
+    <th>Total</th>
+  </tr>
+  <tr><td>1</td><td>32,10</td><td>32,40</td><td>9,90</td><td>9,45</td><td>7,21</td><td>16,80</td><td>107,86</td></tr>
+  <tr><td>2</td><td>34,35</td><td>35,00</td><td>10,89</td><td>9,92</td><td>7,43</td><td>18,82</td><td>116,41</td></tr>
+  <tr><td>5</td><td>42,10</td><td>44,05</td><td>14,54</td><td>11,48</td><td>8,11</td><td>26,54</td><td>146,82</td></tr>
+  <tr><td>10</td><td>62,50</td><td>79,58</td><td>23,39</td><td>14,63</td><td>9,41</td><td>53,03</td><td>242,54</td></tr>
+  <tr><td>20</td><td>129,10</td><td>212,18</td><td>54,13</td><td>23,91</td><td>12,84</td><td>187,36</td><td>619,52</td></tr>
+  <tr><td>30</td><td>267,30</td><td>565,57</td><td>125,20</td><td>39,07</td><td>17,51</td><td>661,11</td><td>1.675,76</td></tr>
+  <tr><td>50</td><td>1.497,20</td><td>5.324,45</td><td>909,20</td><td>97,20</td><td>30,04</td><td>6.269,96</td><td>14.127,05</td></tr>
+</table>
 </body>
 </html>
