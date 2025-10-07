@@ -1,207 +1,96 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Calculadora de Inversión – Cartera Ajustada (con cotización)</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora de Inversión – Cartera Ajustada</title>
 <style>
-  body { font-family: Arial, sans-serif; max-width: 900px; margin: 30px auto; padding: 0 18px; color:#111; }
-  h1,h2 { margin: 8px 0; }
-  .row { display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
-  input[type=number], button, select { padding:10px; font-size:15px; }
-  button { cursor:pointer; }
-  .card { border:1px solid #e0e0e0; padding:12px; border-radius:8px; background:#fafafa; margin-top:12px; }
-  table { border-collapse: collapse; width: 100%; margin-top: 12px; }
-  th, td { border: 1px solid #ddd; padding: 8px; text-align: right; }
-  th { background:#f3f3f3; }
-  caption { text-align:left; font-weight:700; padding:8px 0; }
-  .price { font-size:20px; font-weight:700; }
-  .price-up { color: #0a8b00; }
-  .price-down { color: #c21807; }
-  .small { font-size:12px; color:#666; }
-  .center { text-align:center; }
-  @media (max-width:600px) {
-    .row { flex-direction:column; align-items:stretch; }
-  }
+  body { font-family: Arial, sans-serif; max-width: 800px; margin: 50px auto; padding: 0 20px; }
+  input, button { padding: 8px; margin: 5px 0; width: 100%; font-size: 16px; }
+  .resultado { margin-top: 20px; }
+  table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+  th, td { border: 1px solid #ccc; padding: 8px; text-align: right; }
+  th { background-color: #f0f0f0; }
+  caption { text-align: left; font-weight: bold; margin-bottom: 10px; }
 </style>
 </head>
 <body>
-<h1>Calculadora de Inversión – Cartera Ajustada</h1>
+<h2>Calculadora de Inversión – Cartera Ajustada</h2>
+<label for="cantidad">Introduce la cantidad a invertir (€):</label>
+<input type="number" id="cantidad" placeholder="Ej. 100" />
 
-<!-- SECCIÓN COTIZACIÓN EN TIEMPO REAL -->
-<div class="card" id="cotizacionCard">
-  <div class="row">
-    <div>
-      <label for="symbolSelect"><strong>ETF (cotización en tiempo real):</strong></label><br/>
-      <select id="symbolSelect" title="Cambia el ticker si quieres ver otra cotización">
-        <!-- Valor por defecto VWRL.L (Vanguard FTSE All-World en LSE). Cambia si prefieres VWCE.DE, VUSA.L, etc. -->
-        <option value="VWRL.L" selected>VWRL.L (Vanguard FTSE All-World)</option>
-        <option value="VWCE.DE">VWCE.DE (Vanguard FTSE All-World - Alemania)</option>
-        <option value="IE00BK5BQT80">VWCE (ISIN ejemplo)</option>
-        <option value="SPY">SPY (S&P 500 ETF)</option>
-      </select>
-    </div>
+<button onclick="calcular()">Calcular distribución</button>
 
-    <div style="margin-left:auto; text-align:right;">
-      <div id="priceBlock" class="price">Cargando cotización...</div>
-      <div id="changeBlock" class="small"></div>
-      <div id="timeBlock" class="small"></div>
-    </div>
-  </div>
-  <div class="small" style="margin-top:8px;">
-    Nota: la cotización se actualiza cada 60s. Si el navegador bloquea la petición por CORS, verás un error — para solucionarlo se puede usar un proxy o ejecutar desde un servidor local.
-  </div>
-</div>
-
-<!-- CALCULADORA -->
-<div class="card">
-  <h2>Introduce la cantidad a invertir (€)</h2>
-  <div class="row">
-    <input type="number" id="cantidad" placeholder="Ej. 100" min="0" step="0.01" />
-    <button id="calcBtn">Calcular distribución</button>
-  </div>
-
-  <div id="resultado" style="margin-top:12px;"></div>
-</div>
+<div class="resultado" id="resultado"></div>
 
 <script>
-/* === Parámetros de la cartera ajustada ===
-   Apple 20%, Microsoft 12.5%, Dow Jones 12.5%,
-   Vanguard 25%, S&P 20%, Iberdrola 5%, Oro 5%
-*/
-const distribucion = {
-  "Vanguard FTSE All-World": 0.25,
-  "S&P 500": 0.20,
-  "Apple": 0.20,
-  "Microsoft": 0.125,
-  "Dow Jones": 0.125,
-  "Iberdrola": 0.05,
-  "Oro": 0.05
-};
-
-const rendimiento = {
-  "Vanguard FTSE All-World": 0.08,
-  "S&P 500": 0.08,
-  "Apple": 0.12,
-  "Microsoft": 0.10,
-  "Dow Jones": 0.07,
-  "Iberdrola": 0.06,
-  "Oro": 0.03
-};
-
-const añosList = [0,1,2,5,10,20,30,50];
-
-document.getElementById('calcBtn').addEventListener('click', calcular);
-document.getElementById('cantidad').addEventListener('keydown', function(e){ if(e.key === 'Enter') calcular(); });
-
-function calcular(){
-  const cantidad = parseFloat(document.getElementById('cantidad').value);
-  if (isNaN(cantidad) || cantidad <= 0) {
-    document.getElementById('resultado').innerHTML = "<div class='small'>Introduce un número válido.</div>";
-    return;
-  }
-
-  // inversión inicial sin redondeo
-  let montosIniciales = {};
-  let html = "<h3>Distribución inicial de inversión:</h3><ul>";
-  for (let activo in distribucion) {
-    const val = cantidad * distribucion[activo];
-    montosIniciales[activo] = val;
-    html += `<li>${activo}: €${val.toFixed(2)}</li>`;
-  }
-  html += "</ul>";
-
-  // tabla evolución
-  html += "<h3>Evolución de la inversión (€)</h3>";
-  html += "<table><caption>Valores aproximados según rentabilidad histórica</caption><tr><th>Año</th>";
-  for (let a in distribucion) html += `<th>${a}</th>`;
-  html += "<th>Total</th></tr>";
-
-  for (let i=0; i<añosList.length; i++){
-    const año = añosList[i];
-    let fila = `<tr><td>${año}</td>`;
-    let total = 0;
-    for (let activo in montosIniciales) {
-      let valor = (año === 0) ? montosIniciales[activo] : montosIniciales[activo] * Math.pow(1 + rendimiento[activo], año);
-      total += valor;
-      fila += `<td>${valor.toFixed(2)}</td>`;
+function calcular() {
+    const cantidad = parseFloat(document.getElementById('cantidad').value);
+    if (isNaN(cantidad) || cantidad <= 0) {
+        document.getElementById('resultado').innerHTML = "Introduce un número válido.";
+        return;
     }
-    fila += `<td>${total.toFixed(2)}</td></tr>`;
-    html += fila;
-  }
-  html += "</table>";
 
-  document.getElementById('resultado').innerHTML = html;
+    // Porcentajes exactos
+    const distribucion = {
+        "Vanguard FTSE All-World": 0.25,
+        "S&P 500": 0.20,
+        "Apple": 0.20,
+        "Microsoft": 0.125,
+        "Dow Jones": 0.125,
+        "Iberdrola": 0.05,
+        "Oro": 0.05
+    };
+
+    const rendimiento = {
+        "Vanguard FTSE All-World": 0.08,
+        "S&P 500": 0.08,
+        "Apple": 0.12,
+        "Microsoft": 0.10,
+        "Dow Jones": 0.07,
+        "Iberdrola": 0.06,
+        "Oro": 0.03
+    };
+
+    // Calcular inversión inicial sin redondeo
+    let resultadoHTML = "<h3>Distribución inicial de inversión:</h3><ul>";
+    let montosIniciales = {};
+    for (let activo in distribucion) {
+        let valor = cantidad * distribucion[activo];
+        montosIniciales[activo] = valor;
+        resultadoHTML += `<li>${activo}: €${valor.toFixed(2)}</li>`;
+    }
+    resultadoHTML += "</ul>";
+
+    // Tabla de evolución
+    const años = [0,1,2,5,10,20,30,50];
+    resultadoHTML += "<h3>Evolución de la inversión (€)</h3>";
+    resultadoHTML += "<table><caption>Valores aproximados según rentabilidad histórica</caption><tr><th>Año</th>";
+    for (let activo in distribucion) {
+        resultadoHTML += `<th>${activo}</th>`;
+    }
+    resultadoHTML += "<th>Total</th></tr>";
+
+    for (let i=0; i<años.length; i++) {
+        let año = años[i];
+        resultadoHTML += `<tr><td>${año}</td>`;
+        let total = 0;
+        for (let activo in montosIniciales) {
+            let valor;
+            if(año === 0){
+                valor = montosIniciales[activo];
+            } else {
+                valor = montosIniciales[activo] * Math.pow(1 + rendimiento[activo], año);
+            }
+            total += valor;
+            resultadoHTML += `<td>${valor.toFixed(2)}</td>`;
+        }
+        resultadoHTML += `<td>${total.toFixed(2)}</td></tr>`;
+    }
+    resultadoHTML += "</table>";
+
+    document.getElementById('resultado').innerHTML = resultadoHTML;
 }
-
-/* === SECCIÓN COTIZACIÓN EN TIEMPO REAL ===
-   Intentamos usar Yahoo Finance quote endpoint:
-   https://query1.finance.yahoo.com/v7/finance/quote?symbols=SYMBOL
-   (Puede fallar por CORS; en ese caso verás el error en la consola y en pantalla.)
-*/
-const priceBlock = document.getElementById('priceBlock');
-const changeBlock = document.getElementById('changeBlock');
-const timeBlock = document.getElementById('timeBlock');
-const symbolSelect = document.getElementById('symbolSelect');
-
-let currentFetchTimer = null;
-symbolSelect.addEventListener('change', fetchAndRenderPrice);
-
-// función para formatear números grandes con separadores
-function fmt(n) {
-  return Number(n).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
-}
-
-async function fetchPriceYahoo(symbol){
-  // prueba con el endpoint público de Yahoo Finance
-  const url = `https://query1.finance.yahoo.com/v7/finance/quote?symbols=${encodeURIComponent(symbol)}`;
-  const resp = await fetch(url);
-  if (!resp.ok) throw new Error('No se pudo obtener cotización (status ' + resp.status + ')');
-  const json = await resp.json();
-  if (!json || !json.quoteResponse || !json.quoteResponse.result || json.quoteResponse.result.length === 0) {
-    throw new Error('Respuesta inválida de Yahoo Finance');
-  }
-  return json.quoteResponse.result[0];
-}
-
-async function fetchAndRenderPrice(){
-  const symbol = symbolSelect.value;
-  priceBlock.textContent = 'Cargando cotización...';
-  changeBlock.textContent = '';
-  timeBlock.textContent = '';
-
-  // cancelar timer anterior
-  if (currentFetchTimer) clearTimeout(currentFetchTimer);
-
-  try {
-    const quote = await fetchPriceYahoo(symbol);
-    const price = quote.regularMarketPrice;
-    const change = quote.regularMarketChange;
-    const changePct = quote.regularMarketChangePercent;
-    const marketTime = quote.regularMarketTime ? new Date(quote.regularMarketTime * 1000) : new Date();
-
-    if (price == null) throw new Error('Precio no disponible');
-
-    // colorear según subida/bajada
-    const cls = (change > 0) ? 'price-up' : (change < 0) ? 'price-down' : '';
-    priceBlock.innerHTML = `<span class="${cls}">€ ${fmt(price)}</span>`;
-    changeBlock.innerHTML = `${(change >= 0 ? '+' : '')}${fmt(change)} (${(changePct >= 0 ? '+' : '')}${changePct.toFixed(2)}%)`;
-    timeBlock.textContent = `Última actualización: ${marketTime.toLocaleString()}`;
-
-  } catch (err) {
-    // Si falla, mostrar mensaje claro (y dejar el error en la consola para depuración)
-    console.error('Error obteniendo cotización:', err);
-    priceBlock.textContent = 'No se pudo obtener cotización en directo';
-    changeBlock.textContent = `Error: ${err.message}`;
-    timeBlock.textContent = 'Prueba ejecutar desde servidor local o configurar proxy CORS.';
-  }
-
-  // volver a intentar en 60s
-  currentFetchTimer = setTimeout(fetchAndRenderPrice, 60000);
-}
-
-// iniciar al cargar
-fetchAndRenderPrice();
 </script>
 </body>
 </html>
