@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Calculadora de Inversión – Cartera Global</title>
+<title>Calculadora de Inversión – Cartera Ajustada</title>
 <style>
   body { font-family: Arial, sans-serif; max-width: 800px; margin: 50px auto; padding: 0 20px; }
   input, button { padding: 8px; margin: 5px 0; width: 100%; font-size: 16px; }
@@ -15,7 +15,7 @@
 </style>
 </head>
 <body>
-<h2>Calculadora de Inversión – Cartera Global</h2>
+<h2>Calculadora de Inversión – Cartera Ajustada</h2>
 <label for="cantidad">Introduce la cantidad a invertir (€):</label>
 <input type="number" id="cantidad" placeholder="Ej. 100" />
 
@@ -35,9 +35,9 @@ function calcular() {
     const distribucion = {
         "Vanguard FTSE All-World": 0.25,
         "S&P 500": 0.20,
-        "Apple": 0.15,
-        "Microsoft": 0.15,
-        "Dow Jones": 0.15,
+        "Apple": 0.20,
+        "Microsoft": 0.125,
+        "Dow Jones": 0.125,
         "Iberdrola": 0.05,
         "Oro": 0.05
     };
