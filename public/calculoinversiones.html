@@ -33,13 +33,13 @@ function calcular() {
 
     // Porcentajes exactos
     const distribucion = {
-        "Vanguard FTSE All-World": 25/100,
-        "S&P 500": 20/100,
-        "Apple": 15/100,
-        "Microsoft": 15/100,
-        "Dow Jones": 15/100,
-        "Iberdrola": 5/100,
-        "Oro": 5/100
+        "Vanguard FTSE All-World": 0.25,
+        "S&P 500": 0.20,
+        "Apple": 0.15,
+        "Microsoft": 0.15,
+        "Dow Jones": 0.15,
+        "Iberdrola": 0.05,
+        "Oro": 0.05
     };
 
     const rendimiento = {
@@ -52,13 +52,13 @@ function calcular() {
         "Oro": 0.03
     };
 
-    // Calcular inversión inicial
+    // Calcular inversión inicial sin redondeo
     let resultadoHTML = "<h3>Distribución inicial de inversión:</h3><ul>";
     let montosIniciales = {};
     for (let activo in distribucion) {
-        let valor = (cantidad * distribucion[activo]).toFixed(2);
-        montosIniciales[activo] = parseFloat(valor);
-        resultadoHTML += `<li>${activo}: €${valor}</li>`;
+        let valor = cantidad * distribucion[activo];
+        montosIniciales[activo] = valor;
+        resultadoHTML += `<li>${activo}: €${valor.toFixed(2)}</li>`;
     }
     resultadoHTML += "</ul>";
 
@@ -82,9 +82,8 @@ function calcular() {
             } else {
                 valor = montosIniciales[activo] * Math.pow(1 + rendimiento[activo], año);
             }
-            valor = parseFloat(valor.toFixed(2));
             total += valor;
-            resultadoHTML += `<td>${valor}</td>`;
+            resultadoHTML += `<td>${valor.toFixed(2)}</td>`;
         }
         resultadoHTML += `<td>${total.toFixed(2)}</td></tr>`;
     }
