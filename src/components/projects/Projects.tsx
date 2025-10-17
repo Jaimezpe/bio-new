@@ -16,6 +16,8 @@ function Projects() {
                         <img src="/skills/js.svg" draggable='false' className='lenguajeimagen2' />
                     </div>
 
+                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4012851759330872" crossorigin="anonymous"></script>
+
 
                 </div>
 
